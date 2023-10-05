@@ -12,7 +12,7 @@ RUN apt-get update -y && \
     apt-get clean && rm -rf /var/lib/apt/lists/*
 
 # install grounding DINO deps
-ENV CUDA_HOME "/usr/local/cuda-11.7"
+ENV CUDA_HOME "/usr/local/cuda"
 RUN git clone https://github.com/IDEA-Research/GroundingDINO.git
 RUN cd GroundingDINO && pip install --upgrade pip && pip install -r requirements.txt && pip install .
 

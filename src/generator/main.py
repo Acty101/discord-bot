@@ -37,6 +37,7 @@ def load_and_predict(image_path, text_prompt: str):
 def main():
     """Looks through all images in <src> for faces and crops each face to <dest>"""
     img_names = os.listdir(src)
+    print(img_names)
     for name in img_names:
         path = os.path.join(src, name)
         # only need boxes of coords to crop
