@@ -21,12 +21,17 @@ class MyClient(discord.Client):
         if message.author == self.user:
             return
 
-        # only call bot on !
+        # only call bot functions on !
         if message.content.startswith("!"):
             cmd = message.content[1:]
             match cmd:
                 case Commands.HELP.value:
                     await self._print_help(message)
+        
+        # if any attachements detected on message
+        if message.attachments:
+            # want to download msg into /tmp folder -> run face_recognition and return results
+            print(message.attachments)
 
     async def _print_help(self, message):
         await message.channel.send(
