@@ -27,7 +27,7 @@ class MyClient(discord.Client):
             match cmd:
                 case Commands.HELP.value:
                     await self._print_help(message)
-        
+
         # if any attachements detected on message
         if message.attachments:
             # want to download msg into /tmp folder -> run face_recognition and return results
