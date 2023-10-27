@@ -1,0 +1,28 @@
+version: '3'
+services:
+  main:
+    build:
+      dockerfile: Dockerfile
+      context: ./
+    deploy:
+      resources:
+        reservations:
+          devices:
+            - driver: nvidia
+              count: 1
+              capabilities: [ gpu ]
+    env_file:
+      - .env
+  face_recognition:
+    build:
+      dockerfile: Dockerfile
+      context: ./face_recognition
+    volumes:
+      - ./face_recognition/output:/output
+    deploy:
+      resources:
+        reservations:
+          devices:
+            - driver: nvidia
+              count: 1
+              capabilities: [ gpu ]
