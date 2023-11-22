@@ -3,7 +3,8 @@ FROM python:3.11.4-alpine3.18
 WORKDIR /ROOT
 
 # install dep
-RUN python3 -m pip install -U discord.py python-dotenv
+COPY requirements.txt .
+RUN pip install --upgrade pip && pip install -U -r requirements.txt
 
 COPY main.py .
 

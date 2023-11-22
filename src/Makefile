@@ -3,4 +3,4 @@ build:
 run:
 	docker run --gpus all  --env-file .env discord
 compose:
-	docker compose up
+	docker compose up --build --remove-orphans

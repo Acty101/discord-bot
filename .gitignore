@@ -1,3 +1,2 @@
 **/GroundingDINO
-credentials/
-src/.env
+**/.env

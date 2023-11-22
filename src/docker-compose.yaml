@@ -4,6 +4,8 @@ services:
     build:
       dockerfile: Dockerfile
       context: ./
+    volumes:
+      - ./main.py:/ROOT/main.py
     deploy:
       resources:
         reservations:
@@ -13,12 +15,12 @@ services:
               capabilities: [ gpu ]
     env_file:
       - .env
-  face_recognition:
+  face_rec_model:
     build:
       dockerfile: Dockerfile
-      context: ./face_recognition
+      context: ./face_rec_model
     volumes:
-      - ./face_recognition/output:/output
+      - ./face_rec_model/output:/output
     deploy:
       resources:
         reservations:
